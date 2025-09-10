@@ -2,7 +2,6 @@ __pycache__/
 chats/
 venv/
 reminders.json
-*.png
 venv/
 __pycache__/
 *.pyc
