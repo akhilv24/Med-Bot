@@ -13,7 +13,7 @@ def extract_health_data_from_pdf(pdf_text):
 def show_health_dashboard():
     st.title("Health Report Stats Dashboard")
 
-    uploaded_pdf = st.file_uploader("📄 Upload your medical report (PDF)", type="pdf")
+    uploaded_pdf = st.file_uploader(" Upload your medical report (PDF)", type="pdf")
 
     if uploaded_pdf:
         with pdfplumber.open(uploaded_pdf) as pdf:
@@ -29,19 +29,19 @@ def show_health_dashboard():
             df = pd.DataFrame([data_dict])
             st.success("Report extracted successfully!")
 
-            st.write("### 📋 Extracted Health Data")
+            st.write("### Extracted Health Data")
             st.dataframe(df)
 
             # Plotting
             # Plotting
-            st.write("### 📈 BMI Distribution")
+            st.write("### BMI Distribution")
             fig1, ax1 = plt.subplots()
             sns.histplot(df["BMI"], bins=10, stat="count", kde=False, ax=ax1)
             ax1.set_xlabel("BMI")
             ax1.set_ylabel("Count")
             st.pyplot(fig1)
 
-            st.write("### 📈 Blood Pressure vs Age")
+            st.write("### Blood Pressure vs Age")
             fig2, ax2 = plt.subplots()
             sns.scatterplot(x=df["Age"], y=df["Blood Pressure"], size=df["Cholesterol"], legend=False, ax=ax2)
             st.pyplot(fig2)
@@ -51,4 +51,4 @@ def show_health_dashboard():
             sns.heatmap(df.corr(), annot=True, cmap="coolwarm", ax=ax3)
             st.pyplot(fig3)
         else:
-            st.warning("⚠️ Could not extract all required metrics. Please ensure your report contains Age, BMI, Blood Pressure, and Cholesterol in readable text.")
+            st.warning("Could not extract all required metrics. Please ensure your report contains Age, BMI, Blood Pressure, and Cholesterol in readable text.")

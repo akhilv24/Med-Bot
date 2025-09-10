@@ -67,7 +67,7 @@ chain = LLMChain(llm=llm, prompt=prompt, memory=memory)
 def listen():
     r = sr.Recognizer()
     with sr.Microphone() as source:
-        st.info("🎙 Listening...")
+        st.info(" Listening...")
         audio = r.listen(source)
     try:
         return r.recognize_google(audio)
@@ -97,7 +97,7 @@ def load_chat(file_path):
 col1, col2 = st.columns([1, 5])  # Adjust proportions as needed
 
 with col1:
-    st.image("chatbot.png", width=200)  # Logo on the left
+    st.image("assets/chatbot.png", width=200)  # Logo on the left
     
 with col2:
     st.markdown("<h1 style='padding-top: 8px;'>Medic-Bot — AI Health Assistant</h1>", unsafe_allow_html=True)
@@ -121,7 +121,7 @@ with col3:
         st.session_state.spoken_input = "Tips for maintaining a healthy heart"
         
 # --- Reminder UI ---
-with st.expander("⏰ Set a Medicine Reminder"):
+with st.expander(" Set a Medicine Reminder"):
     med_name = st.text_input("Medicine Name")
     dosage = st.text_input("Dosage (e.g., 1 tablet)")
     time_input = st.time_input("Reminder Time")
@@ -136,7 +136,7 @@ with st.expander("⏰ Set a Medicine Reminder"):
                 st.error("Please fill all fields.")
 
     with col2:
-        if st.button("🗑️ Clear All Reminders"):
+        if st.button(" Clear All Reminders"):
             clear_all_reminders()
             st.warning("All reminders cleared.")
 
@@ -172,17 +172,17 @@ elif page == "Health Stats Dashboard":
     show_health_dashboard()
 
 # Input boxes
-user_input = st.text_input("💬 Ask your medical question:", value=st.session_state.spoken_input, key="main_input")
+user_input = st.text_input(" Ask your medical question:", value=st.session_state.spoken_input, key="main_input")
 
 # Voice & Submit
 col_voice, col_submit = st.columns([1, 2])
 with col_voice:
-    if st.button(" 🗣 Speak"):
+    if st.button(" Speak"):
         spoken = listen()
         st.session_state.spoken_input = spoken
-        st.success(f"🗣 You said: {spoken}")
+        st.success(f"You said: {spoken}")
 with col_submit:
-    if st.button("💡 Get Answer", key="llm_answer"):
+    if st.button(" Get Answer", key="llm_answer"):
         final = user_input.strip()
         if final:
             response = chain.run({"question": final})
@@ -211,7 +211,7 @@ if st.button(" Medicine Info"):
             st.session_state.last_medicine_reply = fallback
             st.session_state.chat_history.append(("You", query))
             st.session_state.chat_history.append(("Medic-Bot", fallback))
-            st.success("🤖 Answered by Medic-Bot")
+            st.success("Answered by Medic-Bot")
     else:
         st.warning("Please provide a query first.")
 
