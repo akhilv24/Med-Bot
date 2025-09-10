@@ -1,0 +1,13 @@
+__pycache__/
+chats/
+venv/
+reminders.json
+*.png
+*.ogg
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.idea/
+.vscode/

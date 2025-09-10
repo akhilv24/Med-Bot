@@ -1,0 +1,12 @@
+langchain
+langchain-community
+langchain-huggingface 
+python-dotenv
+streamlit 
+SpeechRecognition
+pyaudio
+pdfplumber
+gtts
+PyPDF2
+pandas
+pyttsx3
