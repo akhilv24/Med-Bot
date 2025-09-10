@@ -3,7 +3,6 @@ chats/
 venv/
 reminders.json
 *.png
-*.ogg
 venv/
 __pycache__/
 *.pyc
