@@ -3,6 +3,7 @@ langchain-community
 langchain-huggingface 
 python-dotenv
 streamlit 
+langchain_groq
 SpeechRecognition
 pdfplumber
 gtts
